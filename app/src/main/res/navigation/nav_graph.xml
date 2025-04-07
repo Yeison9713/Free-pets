@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.petspics.ui.screens.HomeScreen"
+        android:label="Home">
+        <action
+            android:id="@+id/action_home_to_explore"
+            app:destination="@id/explore" />
+        <action
+            android:id="@+id/action_home_to_messages"
+            app:destination="@id/messages" />
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/explore"
+        android:name="com.example.petspics.ui.screens.ExploreScreen"
+        android:label="Explore">
+        <action
+            android:id="@+id/action_explore_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_explore_to_messages"
+            app:destination="@id/messages" />
+        <action
+            android:id="@+id/action_explore_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/messages"
+        android:name="com.example.petspics.ui.screens.MessagesScreen"
+        android:label="Messages">
+        <action
+            android:id="@+id/action_messages_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_messages_to_explore"
+            app:destination="@id/explore" />
+        <action
+            android:id="@+id/action_messages_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.petspics.ui.screens.ProfileScreen"
+        android:label="Profile">
+        <action
+            android:id="@+id/action_profile_to_home"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_profile_to_explore"
+            app:destination="@id/explore" />
+        <action
+            android:id="@+id/action_profile_to_messages"
+            app:destination="@id/messages" />
+    </fragment>
+
+</navigation> 
