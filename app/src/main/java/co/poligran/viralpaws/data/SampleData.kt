@@ -6,44 +6,60 @@ import co.poligran.viralpaws.data.models.*
 
 class SampleData {
     companion object {
-        val samplePosts = listOf(
+         val samplePosts = listOf(
             PetPost(
                 id = "1",
                 petName = "Luna",
-                ownerName = "María García",
-                description = "Luna es una perra muy juguetona y cariñosa. Le encanta jugar con la pelota y dar paseos largos.",
-                imageUrl = "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                likes = 120,
+                animal = "Perro",
+                ownerName = "María",
+                description = "Mi Beagle posando para la foto",
+                imageUrl = "https://www.superpet.ec/wp-content/uploads/2022/02/beagle-6.jpg",
+                likes = 42,
                 comments = listOf(
                     Comment(
                         id = "1",
-                        userName = "Juan Pérez",
-                        text = "¡Qué linda! 😍",
-                        timestamp = "2024-03-15T10:30:00Z"
-                    ),
-                    Comment(
-                        id = "2",
-                        userName = "Ana López",
-                        text = "Me encanta su energía",
-                        timestamp = "2024-03-15T11:15:00Z"
+                        userName = "Carlos",
+                        text = "¡Qué lindaaa!",
+                        timestamp = "2h"
                     )
-                )
+                ),
+                youtubeShortUrl = "https://www.youtube.com/shorts/iY4bwiMTCns"
             ),
             PetPost(
                 id = "2",
                 petName = "Michi",
-                ownerName = "Carlos Rodríguez",
-                description = "Michi es un gato muy independiente pero cariñoso. Le encanta dormir en lugares altos y observar todo desde arriba.",
+                animal = "Gato",
+                ownerName = "Carlos",
+                description = "Mi gato siamés tomando el sol",
                 imageUrl = "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                likes = 85,
+                likes = 28,
+                comments = listOf(
+                    Comment(
+                        id = "2",
+                        userName = "Ana",
+                        text = "Hermoso gato",
+                        timestamp = "1h"
+                    )
+                ),
+                youtubeShortUrl = "https://www.youtube.com/shorts/zCk5cHkrCpc"
+            ),
+            PetPost(
+                id = "3",
+                petName = "Rocky",
+                animal = "Perro",
+                ownerName = "Ana",
+                description = "Mirando para pasar la calle",
+                imageUrl = "https://i.pinimg.com/originals/f3/7c/bd/f37cbdec24b3642732ff4d9aebaadb14.jpg",
+                likes = 35,
                 comments = listOf(
                     Comment(
                         id = "3",
-                        userName = "Laura Martínez",
-                        text = "¡Qué ojos más bonitos tiene! 😺",
-                        timestamp = "2024-03-15T12:00:00Z"
+                        userName = "María",
+                        text = "¡Qué inteligente!",
+                        timestamp = "30m"
                     )
-                )
+                ),
+                youtubeShortUrl = "https://www.youtube.com/shorts/5XduUERse8A"
             )
         )
 

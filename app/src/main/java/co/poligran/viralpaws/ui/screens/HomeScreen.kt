@@ -1,5 +1,6 @@
 package co.poligran.viralpaws.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -10,15 +11,19 @@ import androidx.compose.material.icons.filled.Comment
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import co.poligran.viralpaws.data.models.PetPost
 import co.poligran.viralpaws.data.models.Comment
 import co.poligran.viralpaws.data.SampleData
 import co.poligran.viralpaws.ui.components.ImageLoader
+import co.poligran.viralpaws.ui.components.YTShortView
 
 @Composable
 fun HomeScreen() {
@@ -125,6 +130,8 @@ fun PetPostCard(
     onLikeClick: () -> Unit,
     onCommentClick: () -> Unit
 ) {
+    var showShortDialog by remember { mutableStateOf(false) }
+
     Card(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -134,7 +141,8 @@ fun PetPostCard(
                 contentDescription = "Post image",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp),
+                    .height(300.dp)
+                    .clickable { showShortDialog = true },
                 contentScale = ContentScale.Crop
             )
             
@@ -207,6 +215,16 @@ fun PetPostCard(
             }
         }
     }
+    if (showShortDialog) {
+        Dialog(onDismissRequest = { showShortDialog = false }) {
+            YTShortView(
+                url = post.youtubeShortUrl,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp) // Ajusta la altura según necesites
+            )
+        }
+    }
 }
 
 @Composable
@@ -237,23 +255,26 @@ fun CommentItem(comment: Comment) {
 private val samplePosts = listOf(
     PetPost(
         id = "1",
-        petName = "Luna (perro)",
+        petName = "Luna",
+        animal = "Perro",
         ownerName = "María",
-        description = "Mi labrador disfrutando del parque",
-        imageUrl = "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        description = "Mi Beagle posando para la foto",
+        imageUrl = "https://www.superpet.ec/wp-content/uploads/2022/02/beagle-6.jpg",
         likes = 42,
         comments = listOf(
             Comment(
                 id = "1",
                 userName = "Carlos",
-                text = "¡Qué lindo perro!",
+                text = "¡Qué lindaaa!",
                 timestamp = "2h"
             )
-        )
+        ),
+        youtubeShortUrl = "https://www.youtube.com/shorts/iY4bwiMTCns"
     ),
     PetPost(
         id = "2",
-        petName = "Michi (gato)",
+        petName = "Michi",
+        animal = "Gato",
         ownerName = "Carlos",
         description = "Mi gato siamés tomando el sol",
         imageUrl = "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
@@ -265,22 +286,25 @@ private val samplePosts = listOf(
                 text = "Hermoso gato",
                 timestamp = "1h"
             )
-        )
+        ),
+        youtubeShortUrl = "https://www.youtube.com/shorts/zCk5cHkrCpc"
     ),
     PetPost(
         id = "3",
-        petName = "Rocky (perro)",
+        petName = "Rocky",
+        animal = "Perro",
         ownerName = "Ana",
-        description = "Jugando en la playa",
-        imageUrl = "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        description = "Mirando para pasar la calle",
+        imageUrl = "https://i.pinimg.com/originals/f3/7c/bd/f37cbdec24b3642732ff4d9aebaadb14.jpg",
         likes = 35,
         comments = listOf(
             Comment(
                 id = "3",
                 userName = "María",
-                text = "¡Qué feliz se ve!",
+                text = "¡Qué inteligente!",
                 timestamp = "30m"
             )
-        )
+        ),
+        youtubeShortUrl = "https://www.youtube.com/shorts/5XduUERse8A"
     )
 ) 

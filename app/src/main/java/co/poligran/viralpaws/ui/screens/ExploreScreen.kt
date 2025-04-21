@@ -16,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import co.poligran.viralpaws.data.models.PetPost
 import co.poligran.viralpaws.data.SampleData
+import co.poligran.viralpaws.data.models.Comment
 import co.poligran.viralpaws.ui.components.ImageLoader
 
 @Composable
@@ -144,50 +145,56 @@ fun ExplorePetCard(post: PetPost) {
 private val samplePosts = listOf(
     PetPost(
         id = "1",
-        petName = "Luna (perro)",
+        petName = "Luna",
+        animal = "Perro",
         ownerName = "María",
-        description = "Mi labrador disfrutando del parque",
-        imageUrl = "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        likes = 42
+        description = "Mi Beagle posando para la foto",
+        imageUrl = "https://www.superpet.ec/wp-content/uploads/2022/02/beagle-6.jpg",
+        likes = 42,
+        comments = listOf(
+            Comment(
+                id = "1",
+                userName = "Carlos",
+                text = "¡Qué lindaaa!",
+                timestamp = "2h"
+            )
+        ),
+        youtubeShortUrl = "https://www.youtube.com/shorts/iY4bwiMTCns"
     ),
     PetPost(
         id = "2",
-        petName = "Michi (gato)",
+        petName = "Michi",
+        animal = "Gato",
         ownerName = "Carlos",
         description = "Mi gato siamés tomando el sol",
         imageUrl = "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        likes = 28
+        likes = 28,
+        comments = listOf(
+            Comment(
+                id = "2",
+                userName = "Ana",
+                text = "Hermoso gato",
+                timestamp = "1h"
+            )
+        ),
+        youtubeShortUrl = "https://www.youtube.com/shorts/zCk5cHkrCpc"
     ),
     PetPost(
         id = "3",
-        petName = "Rocky (perro)",
+        petName = "Rocky",
+        animal = "Perro",
         ownerName = "Ana",
-        description = "Jugando en la playa",
-        imageUrl = "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        likes = 35
-    ),
-    PetPost(
-        id = "4",
-        petName = "Pipo (ave)",
-        ownerName = "Juan",
-        description = "Mi loro aprendiendo a hablar",
-        imageUrl = "https://images.unsplash.com/photo-1552728089-57bdde30beb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        likes = 19
-    ),
-    PetPost(
-        id = "5",
-        petName = "Max (perro)",
-        ownerName = "Laura",
-        description = "Max en su primer día de entrenamiento",
-        imageUrl = "https://images.unsplash.com/photo-1548536765-1d8b3d1a9e6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        likes = 31
-    ),
-    PetPost(
-        id = "6",
-        petName = "Lola (gato)",
-        ownerName = "Pedro",
-        description = "Lola explorando el jardín",
-        imageUrl = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-        likes = 27
+        description = "Mirando para pasar la calle",
+        imageUrl = "https://i.pinimg.com/originals/f3/7c/bd/f37cbdec24b3642732ff4d9aebaadb14.jpg",
+        likes = 35,
+        comments = listOf(
+            Comment(
+                id = "3",
+                userName = "María",
+                text = "¡Qué inteligente!",
+                timestamp = "30m"
+            )
+        ),
+        youtubeShortUrl = "https://www.youtube.com/shorts/5XduUERse8A"
     )
 ) 
